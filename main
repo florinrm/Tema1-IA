@@ -1,0 +1,77 @@
+class Cell:
+    def __init__(self, x, y, moveLeft, moveRight):
+        self.x = x
+        self.y = y
+        self.moveLeft = moveLeft
+        self.moveRight = moveRight
+
+    def canMoveLeft(self):
+        return self.moveLeft
+
+    def canMoveRight(self):
+        return self.moveRight
+
+    def __str__(self):
+        return 'x: ' + str(self.x) + '\ny: ' + str(self.y) \
+               + '\nMove right: ' + str(self.moveRight) + '\nMove left: ' + str(self.moveLeft)
+
+def parse_input(filename):
+    file = open(filename, "r")
+    tokens = list(file.readline().split(" "))
+
+    height = int(tokens[0])
+    width = int(tokens[1])
+    capacity = int(tokens[2])
+
+    tokens = list(file.readline().split(" "))
+
+    carPositionY = int(tokens[0])
+    carPositionX = int(tokens[1])
+
+    tokens = list(file.readline().split(" "))
+    n = int(tokens[0])
+
+    clients = []
+    for _ in range(n):
+        tokens = list(file.readline().split(" "))
+        startY = int(tokens[0])
+        startX = int(tokens[1])
+        destinationY = int(tokens[2])
+        destinationX = int(tokens[3])
+        budget = int(tokens[4])
+        clients.append((startX, startY, destinationX, destinationY, budget))
+
+    matrix = []
+
+    file.readline()
+    for i in range(height):
+        line = file.readline().strip('\n')
+        tokens = list(line.split(" "))
+        row = []
+        for j in range(width):
+            cell = Cell(i, j, False, False)
+            if j == 0:
+                if tokens[j + 1] == ':':
+                    cell.moveRight = True
+            elif j == width - 1:
+                if tokens[j] == ':':
+                    cell.moveLeft = True
+            else:
+                if tokens[j] == ':':
+                    cell.moveLeft = True
+                if tokens[j + 1] == ':':
+                    cell.moveRight = True
+            print(cell)
+            row.append(cell)
+        matrix.append(row)
+        #print(tokens)
+    file.readline()
+
+    return (height, width, capacity, carPositionX, carPositionY, n, clients, matrix)
+
+def main():
+    configuration = parse_input("test1.in")
+    print(configuration)
+
+if __name__ == '__main__':
+    main()
