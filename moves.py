@@ -1,0 +1,6 @@
+LEFT = 'left'
+RIGHT = 'right'
+UP = 'up'
+DOWN = 'down'
+PICKUP = 'pickup'
+DROPOFF = 'dropoff'
