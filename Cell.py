@@ -12,5 +12,8 @@ class Cell:
         return self.moveRight
 
     def __str__(self):
-        return 'x: ' + str(self.x) + '\ny: ' + str(self.y) \
-               + '\nMove right: ' + str(self.moveRight) + '\nMove left: ' + str(self.moveLeft)
+        return 'x = ' + str(self.x) + ' y = ' + str(self.y) \
+               + '\nMove right: ' + str(self.moveRight) + '\nMove left: ' + str(self.moveLeft) + '\n'
+
+    def __repr__(self):
+        return self.__str__()

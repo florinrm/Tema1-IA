@@ -1,6 +1,7 @@
 from Cell import Cell
 from Driver import Driver
-from State import State
+from strategy import Strategies
+from algos import DepthFirstSearch, BreathFirstSearch
 
 def parse_input(filename):
     file = open(filename, "r")
@@ -37,6 +38,7 @@ def parse_input(filename):
         row = []
         for j in range(width):
             cell = Cell(i, j, False, False)
+
             if j == 0:
                 if tokens[j + 1] == ':':
                     cell.moveRight = True
@@ -48,17 +50,37 @@ def parse_input(filename):
                     cell.moveLeft = True
                 if tokens[j + 1] == ':':
                     cell.moveRight = True
-            print(cell)
+
             row.append(cell)
         matrix.append(row)
-        #print(tokens)
     file.readline()
 
-    return (height, width, capacity, carPositionX, carPositionY, n, clients, matrix)
+    driver = Driver(carPositionX, carPositionY, capacity, matrix)
+    #print(driver)
+    #print(matrix)
+
+    #print(driver.succesors())
+
+    return (clients, driver)
 
 def main():
-    configuration = parse_input("test1.in")
-    print(configuration)
+    (clients, driver) = parse_input("test1.in")
+    #print(driver)
+    driver.destinationX = 3
+    driver.destinationY = 3
+
+    result = DepthFirstSearch.DepthFirstSearch(driver)
+    if result != False:
+        print(result)
+    else:
+        print('failed')
+
+    result = BreathFirstSearch.BreathFirstSearch(driver)
+    if result != False:
+        print(result)
+    else:
+        print('failed')
+
 
 if __name__ == '__main__':
     main()
