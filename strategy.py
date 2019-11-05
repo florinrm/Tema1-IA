@@ -4,6 +4,7 @@ class Strategies(Enum):
     BreadhFirstSearch = 2
     DepthLimitedSearch = 3
     IterativeDeepeningSearch = 4
-    GreedyBestFirstSearch = 5
-    AStar = 6
-    HillClimbing = 7
+    UniformCostSearch = 5
+    GreedyBestFirstSearch = 6
+    AStar = 7
+    HillClimbing = 8

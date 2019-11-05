@@ -1,7 +1,14 @@
 from Cell import Cell
 from Driver import Driver
 from strategy import Strategies
-from algos import DepthFirstSearch, BreathFirstSearch
+
+from algos.DepthLimitedSearch import DepthLimitedSearch
+from algos.DepthFirstSearch import DepthFirstSearch
+from algos.BreathFirstSearch import BreathFirstSearch
+from algos.IterativeDeepeningSearch import IterativeDeepeningSearch
+from algos.UniformCostSearch import UniformCostSearch
+from algos.utils import g
+import copy
 
 def parse_input(filename):
     file = open(filename, "r")
@@ -56,30 +63,77 @@ def parse_input(filename):
     file.readline()
 
     driver = Driver(carPositionX, carPositionY, capacity, matrix)
-    #print(driver)
-    #print(matrix)
-
-    #print(driver.succesors())
 
     return (clients, driver)
 
+def neinformalSearch(clients, driver):
+    state = copy.deepcopy(driver)
+    for client in clients:
+        # pick-up client
+        state.destinationX = client[0] #startX client
+        state.destinationY = client[1] #startY client
+
+        budget = client[4]
+
+        result = DepthFirstSearch(state, budget)
+        if result != False:
+            print(result)
+        else:
+            print('failed')
+            return False
+
+        #drop client
+        result.destinationX = client[2]
+        result.destinationX = client[3]
+
+        final = DepthFirstSearch(state)
+        if final != False:
+            print(final)
+        else:
+            print('failed')
+            return False
+
+
 def main():
-    (clients, driver) = parse_input("test1.in")
+    (clients, driver_initial_state) = parse_input("test1.in")
     #print(driver)
-    driver.destinationX = 3
-    driver.destinationY = 3
+    driver_initial_state.destinationX = 4
+    driver_initial_state.destinationY = 4
 
-    result = DepthFirstSearch.DepthFirstSearch(driver)
-    if result != False:
-        print(result)
-    else:
-        print('failed')
+    option = Strategies.BreadhFirstSearch
 
-    result = BreathFirstSearch.BreathFirstSearch(driver)
-    if result != False:
-        print(result)
-    else:
-        print('failed')
+    if option == Strategies.DepthFirstSearch:
+        result = DepthFirstSearch(driver_initial_state, 0)
+        if result != False:
+            print(result)
+            print(g(result))
+        else:
+            print('failed')
+    elif option == Strategies.BreadhFirstSearch:
+        result = BreathFirstSearch(driver_initial_state, 69)
+        if result != False:
+            print(result)
+            print(g(result))
+        else:
+            print('failed')
+    elif option == Strategies.IterativeDeepeningSearch:
+        result = IterativeDeepeningSearch(driver_initial_state, 0)
+        if result != False:
+            print(result)
+        else:
+            print('failed')
+    elif option == Strategies.DepthLimitedSearch:
+        result = DepthFirstSearch(driver_initial_state, 10)
+        if result != False:
+            print(result)
+        else:
+            print('failed')
+    elif option == Strategies.UniformCostSearch:
+        result = UniformCostSearch(driver_initial_state, 0)
+        if result != False:
+            print(result)
+        else:
+            print('failed')
 
 
 if __name__ == '__main__':

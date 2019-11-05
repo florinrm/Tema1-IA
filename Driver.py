@@ -10,6 +10,9 @@ class Driver:
         self.table = table
         self.destinationX = 0
         self.destinationY = 0
+        self.depth = 0
+        self.parent = None
+        self.costFromInitial = 0
 
     def moveDriver(self, move):
         if self.fuel > 0:
@@ -17,32 +20,35 @@ class Driver:
                 if self.canGoDown():
                     self.y = self.y + 1
                     self.fuel = self.fuel - 1
+                    self.depth = self.depth + 1
                 else:
                     print('CANNOT MOVE DOWN - BORDER REACHED')
             elif move == moves.UP:
                 if self.canGoUp():
                     self.y = self.y - 1
                     self.fuel = self.fuel - 1
-
+                    self.depth = self.depth + 1
                 else:
                     print('CANNOT MOVE UP - BORDER REACHED')
             elif move == moves.RIGHT:
                 if self.canGoRight():
                     self.x = self.x + 1
                     self.fuel = self.fuel - 1
+                    self.depth = self.depth + 1
                 else:
                     print('CANNOT MOVE RIGHT - BORDER REACHED')
             elif move == moves.LEFT:
                 if self.canGoLeft():
                     self.x = self.x - 1
                     self.fuel = self.fuel - 1
+                    self.depth = self.depth + 1
                 else:
                     print('CANNOT MOVE LEFT - BORDER REACHED')
         else:
             print('RUN OUT OF FUEL')
 
     def canGoRight(self):
-        return self.fuel > 0 and self.x < len(self.table[0]) and self.table[self.x][self.y].canMoveRight()
+        return self.fuel > 0 and self.x + 1 < len(self.table[0]) and self.table[self.x][self.y].canMoveRight()
 
     def canGoLeft(self):
         return self.fuel > 0 and self.x > 0 and self.table[self.x][self.y].canMoveLeft()
@@ -51,7 +57,7 @@ class Driver:
         return self.fuel > 0 and self.y > 0 and self.table[self.x][self.y].canMoveRight()
 
     def canGoDown(self):
-        return self.fuel > 0 and self.y < len(self.table)
+        return self.fuel > 0 and self.y + 1 < len(self.table)
 
     def succesors(self):
         succ = []

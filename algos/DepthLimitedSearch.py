@@ -1,6 +1,6 @@
 from Driver import Driver
 
-def BreathFirstSearch(state, budget):
+def DepthLimitedSearch(state, budget, k):
     open = [state]
     state.parent = None
     while len(open) > 0:
@@ -8,7 +8,9 @@ def BreathFirstSearch(state, budget):
         if current.goal():
             current.fuel = current.fuel + budget
             return current
+        if current.depth >= k:
+            continue
         for succ in current.succesors():
             succ.parent = current
-            open.append(succ)
+            open.insert(0, succ)
     return False
