@@ -2,13 +2,14 @@ from Cell import Cell
 from Driver import Driver
 from strategy import Strategies
 
-from algos.DepthLimitedSearch import DepthLimitedSearch
-from algos.DepthFirstSearch import DepthFirstSearch
-from algos.BreathFirstSearch import BreathFirstSearch
-from algos.IterativeDeepeningSearch import IterativeDeepeningSearch
-from algos.UniformCostSearch import UniformCostSearch
 from algos.utils import g
 import copy
+
+from neinformalSearches.RideDepthFirstSearch import RideDepthFirstSearch
+from neinformalSearches.RideBreadthFirstSearch import RideBreadthFirstSearch
+from neinformalSearches.RideDepthLimitedSearch import RideDepthLimitedSearch
+from neinformalSearches.RideIterativeDeepeningSearch import RideIterativeDeepeningSearch
+from neinformalSearches.RideUniformCostSearch import RideUniformCostSearch
 
 def parse_input(filename):
     file = open(filename, "r")
@@ -66,29 +67,39 @@ def parse_input(filename):
 
     return (clients, driver)
 
-def neinformalSearch(clients, driver):
-    state = copy.deepcopy(driver)
-    for client in clients:
-        # pick-up client
-        state.destinationX = client[0] #startX client
-        state.destinationY = client[1] #startY client
-
-        budget = client[4]
-
-        result = DepthFirstSearch(state, budget)
+def neinformalSearch(clients, driver, option):
+    if option == Strategies.DepthFirstSearch:
+        result = RideDepthFirstSearch(clients, driver)
         if result != False:
-            print(result)
+            return result
         else:
             print('failed')
             return False
-
-        #drop client
-        result.destinationX = client[2]
-        result.destinationX = client[3]
-
-        final = DepthFirstSearch(state)
-        if final != False:
-            print(final)
+    elif option == Strategies.BreadhFirstSearch:
+        result = RideBreadthFirstSearch(clients, driver)
+        if result != False:
+            return result
+        else:
+            print('failed')
+            return False
+    elif option == Strategies.UniformCostSearch:
+        result = RideUniformCostSearch(clients, driver)
+        if result != False:
+            return result
+        else:
+            print('failed')
+            return False
+    elif option == Strategies.IterativeDeepeningSearch:
+        result = RideIterativeDeepeningSearch(clients, driver)
+        if result != False:
+            return result
+        else:
+            print('failed')
+            return False
+    elif option == Strategies.DepthLimitedSearch:
+        result = RideDepthLimitedSearch(clients, driver, 10)
+        if result != False:
+            return result
         else:
             print('failed')
             return False
@@ -96,45 +107,8 @@ def neinformalSearch(clients, driver):
 
 def main():
     (clients, driver_initial_state) = parse_input("test1.in")
-    #print(driver)
-    driver_initial_state.destinationX = 4
-    driver_initial_state.destinationY = 4
-
-    option = Strategies.BreadhFirstSearch
-
-    if option == Strategies.DepthFirstSearch:
-        result = DepthFirstSearch(driver_initial_state, 0)
-        if result != False:
-            print(result)
-            print(g(result))
-        else:
-            print('failed')
-    elif option == Strategies.BreadhFirstSearch:
-        result = BreathFirstSearch(driver_initial_state, 69)
-        if result != False:
-            print(result)
-            print(g(result))
-        else:
-            print('failed')
-    elif option == Strategies.IterativeDeepeningSearch:
-        result = IterativeDeepeningSearch(driver_initial_state, 0)
-        if result != False:
-            print(result)
-        else:
-            print('failed')
-    elif option == Strategies.DepthLimitedSearch:
-        result = DepthFirstSearch(driver_initial_state, 10)
-        if result != False:
-            print(result)
-        else:
-            print('failed')
-    elif option == Strategies.UniformCostSearch:
-        result = UniformCostSearch(driver_initial_state, 0)
-        if result != False:
-            print(result)
-        else:
-            print('failed')
-
+    result = neinformalSearch(clients, driver_initial_state, Strategies.UniformCostSearch)
+    print(result)
 
 if __name__ == '__main__':
     main()

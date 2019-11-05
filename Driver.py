@@ -86,7 +86,8 @@ class Driver:
     def __str__(self):
         return 'Current position: ' + str(self.x) + ' ' + str(self.y) \
                + '\n' + 'Destination: ' + str(self.destinationX) + ' ' + str(self.destinationY) \
-               + '\nCurrent fuel: ' + str(self.fuel) + '\n' + str(self.table)
+               + '\nCurrent fuel: ' + str(self.fuel) + '\n' \
+               #+ str(self.table)
 
     def __repr__(self):
         return self.__str__()
