@@ -1,6 +1,6 @@
 from Driver import Driver
 
-def DepthLimitedSearch(state, budget, k):
+def DepthLimitedSearch(state, k):
     open = [state]
     state.parent = None
     visited = []
@@ -8,7 +8,6 @@ def DepthLimitedSearch(state, budget, k):
         current = open.pop(0)
         visited.append((current.x, current.y))
         if current.goal():
-            current.fuel = current.fuel + budget
             return current
         if current.depth >= k:
             continue

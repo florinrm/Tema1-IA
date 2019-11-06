@@ -1,11 +1,17 @@
+import moves
 from algos.IterativeDeepeningSearch import IterativeDeepeningSearch
 from Cell import Cell
 from Driver import Driver
 import copy
-from algos.utils import g
+from algos.utils import g, reconstructPath
+
 
 def RideIterativeDeepeningSearch(clients, driver):
     state = copy.deepcopy(driver)
+    total_money = 0
+
+    actions = []
+
     for client in clients:
         # pick-up client
         state.destinationX = client[0] #startX client
@@ -15,11 +21,13 @@ def RideIterativeDeepeningSearch(clients, driver):
 
         budget = client[4]
 
-        result = IterativeDeepeningSearch(state, 0)
+        result = IterativeDeepeningSearch(state)
         if result == False:
             print('pick-up failed - no fuel')
             return False
         else:
+            actions += reconstructPath(result)
+            actions.append(moves.PICKUP)
             print('pick-up succeded')
             print(result)
 
@@ -34,16 +42,19 @@ def RideIterativeDeepeningSearch(clients, driver):
         print(result)
         #print('cost ' + str(g(result)))
 
-        final = IterativeDeepeningSearch(result, budget)
+        final = IterativeDeepeningSearch(result)
 
         if final == False:
             print('drop failed - no fuel')
             return False
         else:
+            actions += reconstructPath(final)
+            actions.append(moves.DROPOFF)
             print(final)
 
         state = copy.deepcopy(final)
         state.x = state.destinationX
         state.y = state.destinationY
+        total_money += budget
 
-    return (state, g(state))
+    return (state, g(state), total_money, actions)

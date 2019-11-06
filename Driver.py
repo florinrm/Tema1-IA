@@ -14,6 +14,7 @@ class Driver:
         self.parent = None
         self.costFromInitial = 0
         self.estimatedCost = 0
+        self.lastMove = None
 
     def moveDriver(self, move):
         if self.fuel > 0:
@@ -22,6 +23,7 @@ class Driver:
                     self.y = self.y + 1
                     self.fuel = self.fuel - 1
                     self.depth = self.depth + 1
+                    self.lastMove = moves.DOWN
                 else:
                     print('CANNOT MOVE DOWN - BORDER REACHED')
             elif move == moves.UP:
@@ -29,6 +31,7 @@ class Driver:
                     self.y = self.y - 1
                     self.fuel = self.fuel - 1
                     self.depth = self.depth + 1
+                    self.lastMove = moves.UP
                 else:
                     print('CANNOT MOVE UP - BORDER REACHED')
             elif move == moves.RIGHT:
@@ -36,6 +39,7 @@ class Driver:
                     self.x = self.x + 1
                     self.fuel = self.fuel - 1
                     self.depth = self.depth + 1
+                    self.lastMove = moves.RIGHT
                 else:
                     print('CANNOT MOVE RIGHT - BORDER REACHED')
             elif move == moves.LEFT:
@@ -43,6 +47,7 @@ class Driver:
                     self.x = self.x - 1
                     self.fuel = self.fuel - 1
                     self.depth = self.depth + 1
+                    self.lastMove = moves.LEFT
                 else:
                     print('CANNOT MOVE LEFT - BORDER REACHED')
         else:

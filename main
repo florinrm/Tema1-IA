@@ -1,5 +1,8 @@
 from Cell import Cell
 from Driver import Driver
+from informalSearches.RideAStarSearch import RideAStarSearch
+from informalSearches.RideGreedyBestFirstSearch import RideGreedyBestFirstSearch
+from informalSearches.RideHillClimbingSearch import RideHillClimbingSearch
 from strategy import Strategies
 
 from neinformalSearches.RideDepthFirstSearch import RideDepthFirstSearch
@@ -64,7 +67,7 @@ def parse_input(filename):
 
     return (clients, driver)
 
-def neinformalSearch(clients, driver, option):
+def search(clients, driver, option):
     if option == Strategies.DepthFirstSearch:
         result = RideDepthFirstSearch(clients, driver)
         if result != False:
@@ -101,16 +104,31 @@ def neinformalSearch(clients, driver, option):
             print('failed')
             return False
     elif option == Strategies.AStar:
-        pass
+        result = RideAStarSearch(clients, driver)
+        if result != False:
+            return result
+        else:
+            print('failed')
+            return False
     elif option == Strategies.GreedyBestFirstSearch:
-        pass
+        result = RideGreedyBestFirstSearch(clients, driver)
+        if result != False:
+            return result
+        else:
+            print('failed')
+            return False
     elif option == Strategies.HillClimbing:
-        pass
+        result = RideHillClimbingSearch(clients, driver)
+        if result != False:
+            return result
+        else:
+            print('failed')
+            return False
 
 
 def main():
     (clients, driver_initial_state) = parse_input("test1.in")
-    result = neinformalSearch(clients, driver_initial_state, Strategies.DepthLimitedSearch)
+    result = search(clients, driver_initial_state, Strategies.GreedyBestFirstSearch)
     print(result)
 
 if __name__ == '__main__':
