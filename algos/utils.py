@@ -6,3 +6,9 @@ def g(state):
         cost = cost + 1
         state = state.parent
     return cost
+
+def h(state):
+    if state.goal():
+        return 0
+    cost = 0
+    return 0

@@ -13,6 +13,7 @@ class Driver:
         self.depth = 0
         self.parent = None
         self.costFromInitial = 0
+        self.estimatedCost = 0
 
     def moveDriver(self, move):
         if self.fuel > 0:
