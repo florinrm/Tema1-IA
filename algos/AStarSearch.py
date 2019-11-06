@@ -28,17 +28,17 @@ def AStarSearch(state):
 
             cost = h(succ) + g(succ)
 
-            res = findState(succ, closed + map(lambda x: x[1], open))
+            res = findState(succ, closed + list(map(lambda x: x[1], open)))
             if res != False:
                 if g(res) < g(succ):
                     continue
                 else:
                     if res in closed:
                         closed.remove(res)
-                    if res in map(lambda x: x[1], open):
-                        open = filter(lambda x: x[1] != res, open)
+                    if res in list(map(lambda x: x[1], open)):
+                        open = list(filter(lambda x: x[1] != res, open))
 
-            res.parent = succ
+            succ.parent = current
             open.append((cost, succ))
             open = sorted(open, key = lambda x: x[0])
 

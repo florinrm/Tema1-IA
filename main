@@ -128,7 +128,7 @@ def search(clients, driver, option):
 
 def main():
     (clients, driver_initial_state) = parse_input("test1.in")
-    result = search(clients, driver_initial_state, Strategies.GreedyBestFirstSearch)
+    result = search(clients, driver_initial_state, Strategies.AStar)
     print(result)
 
 if __name__ == '__main__':
