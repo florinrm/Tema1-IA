@@ -27,7 +27,6 @@ def RecursiveBestFirstSearchHelper(state, k):
         succesors = sorted(succesors, key=lambda succ: succ.f)
         best = succesors[0]
         if best.f > k:
-            print((best.f, k))
             return (False, best.f)
 
         value = k
