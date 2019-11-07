@@ -1,0 +1,5 @@
+GreedyBestFirstSearch
+0.17329907417297363
+1016
+58
+['up', 'left', 'pickup', 'right', 'down', 'down', 'dropoff', 'up', 'pickup', 'down', 'down', 'dropoff', 'up', 'up', 'up', 'left', 'up', 'pickup', 'right', 'right', 'down', 'right', 'down', 'down', 'dropoff']

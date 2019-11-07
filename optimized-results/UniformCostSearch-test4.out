@@ -1,0 +1,5 @@
+UniformCostSearch
+9.027898073196411
+1046
+869
+['up', 'right', 'pickup', 'down', 'down', 'left', 'left', 'left', 'left', 'down', 'dropoff', 'right', 'right', 'up', 'pickup', 'up', 'right', 'dropoff', 'down', 'left', 'left', 'left', 'up', 'left', 'left', 'pickup', 'down', 'down', 'right', 'right', 'down', 'right', 'right', 'right', 'right', 'dropoff', 'up', 'up', 'left', 'left', 'left', 'left', 'up', 'pickup', 'down', 'down', 'down', 'right', 'dropoff', 'up', 'up', 'left', 'left', 'left', 'pickup', 'down', 'right', 'right', 'right', 'dropoff', 'up', 'up', 'right', 'right', 'pickup', 'down', 'down', 'left', 'dropoff', 'down', 'down', 'left', 'left', 'left', 'pickup', 'up', 'up', 'right', 'right', 'right', 'up', 'dropoff']

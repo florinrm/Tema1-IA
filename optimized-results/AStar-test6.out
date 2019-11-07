@@ -1,0 +1,5 @@
+AStar
+10.000382900238037
+1073
+490
+['up', 'left', 'left', 'up', 'up', 'pickup', 'down', 'left', 'left', 'down', 'left', 'left', 'down', 'dropoff', 'right', 'right', 'up', 'pickup', 'right', 'up', 'dropoff', 'right', 'right', 'right', 'pickup', 'down', 'left', 'down', 'left', 'down', 'dropoff', 'left', 'left', 'left', 'up', 'up', 'pickup', 'left', 'up', 'dropoff', 'pickup', 'down', 'down', 'down', 'right', 'dropoff', 'left', 'left', 'left', 'up', 'up', 'pickup', 'down', 'right', 'right', 'down', 'down', 'right', 'down', 'down', 'down', 'dropoff', 'up', 'up', 'up', 'up', 'right', 'down', 'down', 'down', 'right', 'down', 'down', 'pickup', 'up', 'left', 'down', 'dropoff', 'up', 'left', 'up', 'up', 'up', 'left', 'left', 'pickup', 'right', 'right', 'up', 'right', 'down', 'down', 'down', 'dropoff', 'left', 'up', 'up', 'left', 'up', 'up', 'up', 'up', 'pickup', 'right', 'right', 'right', 'right', 'down', 'down', 'dropoff', 'up', 'up', 'up', 'pickup', 'down', 'left', 'left', 'down', 'left', 'left', 'left', 'left', 'down', 'down', 'down', 'down', 'dropoff']

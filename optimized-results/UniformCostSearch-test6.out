@@ -1,0 +1,5 @@
+UniformCostSearch
+92.9848620891571
+1073
+2841
+['up', 'left', 'left', 'up', 'up', 'pickup', 'down', 'down', 'left', 'left', 'left', 'left', 'down', 'dropoff', 'right', 'right', 'up', 'pickup', 'up', 'right', 'dropoff', 'right', 'right', 'right', 'pickup', 'down', 'down', 'down', 'left', 'left', 'dropoff', 'up', 'up', 'left', 'left', 'left', 'pickup', 'left', 'up', 'dropoff', 'pickup', 'down', 'down', 'down', 'right', 'dropoff', 'up', 'up', 'left', 'left', 'left', 'pickup', 'down', 'down', 'down', 'right', 'right', 'right', 'down', 'down', 'down', 'dropoff', 'up', 'up', 'up', 'up', 'right', 'down', 'down', 'down', 'right', 'down', 'down', 'pickup', 'up', 'left', 'down', 'dropoff', 'up', 'up', 'up', 'up', 'left', 'left', 'left', 'pickup', 'right', 'up', 'right', 'right', 'down', 'down', 'down', 'dropoff', 'up', 'up', 'up', 'up', 'up', 'left', 'left', 'up', 'pickup', 'down', 'down', 'right', 'right', 'right', 'right', 'dropoff', 'up', 'up', 'up', 'pickup', 'down', 'down', 'down', 'down', 'left', 'down', 'left', 'left', 'left', 'down', 'left', 'left', 'dropoff']

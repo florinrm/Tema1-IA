@@ -1,0 +1,5 @@
+BreadthFirstSearch
+19.874817609786987
+1088
+1492
+['up', 'right', 'pickup', 'down', 'down', 'left', 'left', 'left', 'left', 'down', 'dropoff', 'right', 'right', 'up', 'pickup', 'up', 'right', 'dropoff', 'down', 'left', 'left', 'left', 'up', 'left', 'left', 'pickup', 'down', 'down', 'right', 'right', 'down', 'right', 'right', 'right', 'right', 'dropoff', 'up', 'up', 'left', 'left', 'left', 'pickup', 'left', 'up', 'dropoff', 'pickup', 'down', 'down', 'down', 'right', 'dropoff', 'up', 'up', 'left', 'left', 'left', 'pickup', 'down', 'right', 'right', 'right', 'dropoff', 'up', 'up', 'right', 'right', 'pickup', 'down', 'down', 'left', 'dropoff', 'down', 'down', 'left', 'left', 'left', 'pickup', 'up', 'up', 'right', 'right', 'right', 'up', 'dropoff', 'left', 'left', 'up', 'pickup', 'down', 'down', 'right', 'right', 'right', 'right', 'dropoff', 'up', 'up', 'up', 'pickup', 'down', 'down', 'down', 'down', 'left', 'down', 'left', 'left', 'left', 'down', 'left', 'left', 'dropoff']
