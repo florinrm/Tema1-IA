@@ -15,6 +15,7 @@ class Driver:
         self.costFromInitial = 0
         self.estimatedCost = 0
         self.lastMove = None
+        self.f = 0
 
     def moveDriver(self, move):
         if self.fuel > 0:

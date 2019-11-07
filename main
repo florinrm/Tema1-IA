@@ -3,6 +3,7 @@ from Driver import Driver
 from informalSearches.RideAStarSearch import RideAStarSearch
 from informalSearches.RideGreedyBestFirstSearch import RideGreedyBestFirstSearch
 from informalSearches.RideHillClimbingSearch import RideHillClimbingSearch
+from informalSearches.RideRecursiveBestFirstSearch import RideRecursiveBestFirstSearch
 from strategy import Strategies
 
 from neinformalSearches.RideDepthFirstSearch import RideDepthFirstSearch
@@ -78,7 +79,7 @@ def search(clients, driver, option):
         else:
             print('failed')
             return False
-    elif option == Strategies.BreadhFirstSearch:
+    elif option == Strategies.BreadthFirstSearch:
         result = RideBreadthFirstSearch(clients, driver)
         if result != False:
             return result
@@ -100,7 +101,7 @@ def search(clients, driver, option):
             print('failed')
             return False
     elif option == Strategies.DepthLimitedSearch:
-        result = RideDepthLimitedSearch(clients, driver, 30)
+        result = RideDepthLimitedSearch(clients, driver, 1000)
         if result != False:
             return result
         else:
@@ -127,25 +128,33 @@ def search(clients, driver, option):
         else:
             print('failed')
             return False
+    elif option == Strategies.RecursiveBestFirstSearch:
+        result = RideRecursiveBestFirstSearch(clients, driver)
+        if result != False:
+            return result
+        else:
+            print('failed')
+            return False
 
 
 def main():
-    test_no = 6
-    (clients, driver_initial_state) = parse_input('test' + str(test_no) + '.in')
-    strategy = Strategies.AStar
-    start = time.time()
-    result = search(clients, driver_initial_state, strategy)
-    end = time.time()
-    #print(result)
+    for i in range(1, 7):
+        test_no = i
+        (clients, driver_initial_state) = parse_input('test' + str(test_no) + '.in')
+        strategy = Strategies.RecursiveBestFirstSearch
+        start = time.time()
+        result = search(clients, driver_initial_state, strategy)
+        end = time.time()
+        #print(result)
 
-    measure_time = end - start
+        measure_time = end - start
 
-    output = open('test' + str(test_no) + '.out', 'w')
-    output.write(strategy.name + '\n')
-    output.write(str(measure_time) + '\n')
-    output.write(str(result[2]) + '\n')
-    output.write(str(result[4]) + '\n')
-    output.write(str(result[3]))
+        output = open(strategy.name + '-test' + str(test_no) + '.out', 'w')
+        output.write(strategy.name + '\n')
+        output.write(str(measure_time) + '\n')
+        output.write(str(result[2]) + '\n')
+        output.write(str(result[4]) + '\n')
+        output.write(str(result[3]))
 
 if __name__ == '__main__':
     main()
