@@ -9,6 +9,7 @@ from algos.utils import g, reconstructPath
 def RideGreedyBestFirstSearch(clients, driver):
     state = copy.deepcopy(driver)
     total_money = 0
+    visited_states = 0
 
     actions = []
 
@@ -27,12 +28,14 @@ def RideGreedyBestFirstSearch(clients, driver):
             return False
         else:
             print('pick-up succeded')
-            actions += reconstructPath(result)
+            actions += reconstructPath(result[0])
+            visited_states += result[1]
             actions.append(moves.PICKUP)
             print(result)
 
         #drop client
         print('gotta go to destination')
+        result = result[0]
         result.x = state.destinationX
         result.y = state.destinationY
 
@@ -48,13 +51,14 @@ def RideGreedyBestFirstSearch(clients, driver):
             print('drop failed - no fuel')
             return False
         else:
-            actions += reconstructPath(final)
+            actions += reconstructPath(final[0])
+            visited_states += final[1]
             actions.append(moves.DROPOFF)
             print(final)
 
-        state = copy.deepcopy(final)
+        state = copy.deepcopy(final[0])
         state.x = state.destinationX
         state.y = state.destinationY
         total_money += budget
 
-    return (state, g(state), total_money, actions)
+    return (state, g(state), total_money + state.fuel, actions, visited_states)

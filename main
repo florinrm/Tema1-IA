@@ -11,6 +11,8 @@ from neinformalSearches.RideDepthLimitedSearch import RideDepthLimitedSearch
 from neinformalSearches.RideIterativeDeepeningSearch import RideIterativeDeepeningSearch
 from neinformalSearches.RideUniformCostSearch import RideUniformCostSearch
 
+import time
+
 def parse_input(filename):
     file = open(filename, "r")
     tokens = list(file.readline().split(" "))
@@ -62,6 +64,7 @@ def parse_input(filename):
             row.append(cell)
         matrix.append(row)
     file.readline()
+    file.close()
 
     driver = Driver(carPositionX, carPositionY, capacity, matrix)
 
@@ -127,9 +130,22 @@ def search(clients, driver, option):
 
 
 def main():
-    (clients, driver_initial_state) = parse_input("test2.in")
-    result = search(clients, driver_initial_state, Strategies.HillClimbing)
-    print(result)
+    test_no = 6
+    (clients, driver_initial_state) = parse_input('test' + str(test_no) + '.in')
+    strategy = Strategies.AStar
+    start = time.time()
+    result = search(clients, driver_initial_state, strategy)
+    end = time.time()
+    #print(result)
+
+    measure_time = end - start
+
+    output = open('test' + str(test_no) + '.out', 'w')
+    output.write(strategy.name + '\n')
+    output.write(str(measure_time) + '\n')
+    output.write(str(result[2]) + '\n')
+    output.write(str(result[4]) + '\n')
+    output.write(str(result[3]))
 
 if __name__ == '__main__':
     main()

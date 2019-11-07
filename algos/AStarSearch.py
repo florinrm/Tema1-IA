@@ -20,7 +20,7 @@ def AStarSearch(state):
         visited.append((current.x, current.y))
 
         if current.goal():
-            return current
+            return (current, len(visited))
 
         closed.append(current)
         for succ in current.succesors():

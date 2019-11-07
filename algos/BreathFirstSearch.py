@@ -7,8 +7,10 @@ def BreathFirstSearch(state):
     while len(open) > 0:
         current = open.pop(0)
         visited.append((current.x, current.y))
+
         if current.goal():
-            return current
+            return (current, len(visited))
+
         for succ in current.succesors():
             if ((succ.x, succ.y) in visited):
                 continue

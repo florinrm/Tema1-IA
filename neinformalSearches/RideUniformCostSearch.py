@@ -9,13 +9,14 @@ from algos.utils import g, reconstructPath
 def RideUniformCostSearch(clients, driver):
     state = copy.deepcopy(driver)
     total_money = 0
+    visited_states = 0
 
     actions = []
 
     for client in clients:
         # pick-up client
-        state.destinationX = client[0] #startX client
-        state.destinationY = client[1] #startY client
+        state.destinationX = client[0]  # startX client
+        state.destinationY = client[1]  # startY client
 
         print(state)
 
@@ -26,13 +27,15 @@ def RideUniformCostSearch(clients, driver):
             print('pick-up failed - no fuel')
             return False
         else:
-            actions += reconstructPath(result)
-            actions.append(moves.PICKUP)
             print('pick-up succeded')
+            actions += reconstructPath(result[0])
+            visited_states += result[1]
+            actions.append(moves.PICKUP)
             print(result)
 
-        #drop client
+        # drop client
         print('gotta go to destination')
+        result = result[0]
         result.x = state.destinationX
         result.y = state.destinationY
 
@@ -40,7 +43,7 @@ def RideUniformCostSearch(clients, driver):
         result.destinationY = client[3]
 
         print(result)
-        #print('cost ' + str(g(result)))
+        # print('cost ' + str(g(result)))
 
         final = UniformCostSearch(result)
 
@@ -48,13 +51,14 @@ def RideUniformCostSearch(clients, driver):
             print('drop failed - no fuel')
             return False
         else:
-            actions += reconstructPath(final)
+            actions += reconstructPath(final[0])
+            visited_states += final[1]
             actions.append(moves.DROPOFF)
             print(final)
 
-        state = copy.deepcopy(final)
+        state = copy.deepcopy(final[0])
         state.x = state.destinationX
         state.y = state.destinationY
         total_money += budget
 
-    return (state, g(state), total_money, actions)
+    return (state, g(state), total_money + state.fuel, actions, visited_states)

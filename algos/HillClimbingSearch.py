@@ -29,4 +29,4 @@ def HillClimbingSearch(state):
             current = nextState
             currentCost = maxim
 
-    return current
+    return (current, len(visited))
