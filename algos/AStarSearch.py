@@ -12,10 +12,12 @@ def AStarSearch(state):
     state.parent = None
     closed = []
     visited = []
+    visited_states = 0
 
     while len(open) > 0:
         (currentCost, current) = open.pop(0)
-        visited.append((current.x, current.y, current.destinationX, current.destinationY))
+        visited_states += 1
+        visited.append((current.x, current.y))
 
         if current.goal():
             return current
@@ -23,7 +25,7 @@ def AStarSearch(state):
         closed.append(current)
         for succ in current.succesors():
 
-            if ((succ.x, succ.y, succ.destinationX, succ.destinationY)) in visited:
+            if ((succ.x, succ.y)) in visited:
                 continue
 
             cost = h(succ) + g(succ)

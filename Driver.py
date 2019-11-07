@@ -60,7 +60,7 @@ class Driver:
         return self.fuel > 0 and self.x > 0 and self.table[self.x][self.y].canMoveLeft()
 
     def canGoUp(self):
-        return self.fuel > 0 and self.y > 0 and self.table[self.x][self.y].canMoveRight()
+        return self.fuel > 0 and self.y > 0
 
     def canGoDown(self):
         return self.fuel > 0 and self.y + 1 < len(self.table)

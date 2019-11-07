@@ -7,11 +7,11 @@ def GreedyBestFirstSearch(state):
     visited = []
     while len(open) > 0:
         (_, current) = open.pop(0)
-        visited.append((current.x, current.y, current.destinationX, current.destinationY))
+        visited.append((current.x, current.y))
         if current.goal():
             return current
         for succ in current.succesors():
-            if ((succ.x, succ.y, succ.destinationX, succ.destinationY) in visited):
+            if ((succ.x, succ.y) in visited):
                 continue
             succ.parent = current
             succ.estimatedCost = h(succ)

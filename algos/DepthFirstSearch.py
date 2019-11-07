@@ -6,12 +6,15 @@ def DepthFirstSearch(state):
     visited = []
     while len(open) > 0:
         current = open.pop(0)
-        visited.append((current.x, current.y, current.destinationX, current.destinationY))
+        #print('Current state is: ' + str(current))
+        visited.append((current.x, current.y))
         if current.goal():
             return current
         for succ in current.succesors():
-            if ((succ.x, succ.y, succ.destinationX, succ.destinationY) in visited):
-                continue
             succ.parent = current
+            if ((succ.x, succ.y) in visited):
+                continue
+            #print('Succesor ' + str(succ))
+
             open.insert(0, succ)
     return False

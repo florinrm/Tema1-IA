@@ -6,11 +6,11 @@ def BreathFirstSearch(state):
     visited = []
     while len(open) > 0:
         current = open.pop(0)
-        visited.append(current)
+        visited.append((current.x, current.y))
         if current.goal():
             return current
         for succ in current.succesors():
-            if (succ in visited):
+            if ((succ.x, succ.y) in visited):
                 continue
             succ.parent = current
             open.append(succ)
