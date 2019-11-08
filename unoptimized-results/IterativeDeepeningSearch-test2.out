@@ -1,0 +1,5 @@
+IterativeDeepeningSearch
+5.4248175621032715
+1071
+1255
+['up', 'pickup', 'right', 'down', 'down', 'dropoff', 'up', 'pickup', 'down', 'down', 'dropoff', 'left', 'up', 'up', 'up', 'up', 'pickup', 'right', 'right', 'down', 'right', 'down', 'down', 'dropoff', 'up', 'left', 'left', 'left', 'left', 'up', 'pickup', 'down', 'right', 'right', 'right', 'down', 'right', 'down', 'dropoff', 'left', 'left', 'up', 'up', 'up', 'up', 'pickup', 'right', 'down', 'down', 'down', 'down', 'dropoff', 'left', 'up', 'up', 'up', 'pickup', 'right', 'down', 'down', 'down', 'dropoff', 'left', 'left', 'left', 'up', 'up', 'pickup', 'right', 'right', 'right', 'down', 'dropoff', 'pickup', 'down', 'left', 'left', 'left', 'dropoff', 'pickup', 'up', 'right', 'right', 'right', 'right', 'dropoff', 'down', 'left', 'left', 'left', 'pickup', 'up', 'right', 'right', 'right', 'up', 'dropoff']
