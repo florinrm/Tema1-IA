@@ -1,5 +1,5 @@
 RecursiveBestFirstSearch
-0.06803059577941895
+0.06203269958496094
 986
 0
-['pickup', 'dropoff', 'pickup', 'dropoff', 'pickup', 'dropoff']
+['up', 'up', 'right', 'left', 'pickup', 'left', 'down', 'down', 'down', 'left', 'up', 'up', 'up', 'up', 'right', 'right', 'down', 'down', 'down', 'dropoff', 'down', 'down', 'left', 'up', 'up', 'up', 'up', 'right', 'down', 'down', 'pickup', 'down', 'down', 'down', 'dropoff', 'down', 'up', 'up', 'up', 'up', 'right', 'down', 'down', 'right', 'up', 'right', 'left', 'down', 'down', 'down', 'left', 'up', 'up', 'up', 'right', 'pickup', 'right', 'down', 'down', 'down', 'down', 'left', 'up', 'up', 'up', 'up', 'right', 'down', 'up', 'up', 'up', 'right', 'down', 'down', 'down', 'down', 'right', 'dropoff']

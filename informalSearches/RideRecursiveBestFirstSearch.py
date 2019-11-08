@@ -1,5 +1,6 @@
 import moves
 from algos.RecursiveBestFirstSearch import RecursiveBestFirstSearch, visited
+from algos.RecursiveBestFirstSearch import actionsList
 from Cell import Cell
 from Driver import Driver
 import copy
@@ -29,8 +30,9 @@ def RideRecursiveBestFirstSearch(clients, driver):
         else:
             print('pick-up succeded')
             print(result)
-            actions += reconstructPath(result[0])
+            actions += actionsList
             visited.clear()
+            actionsList.clear()
             visited_states += result[1]
             actions.append(moves.PICKUP)
 
@@ -52,7 +54,8 @@ def RideRecursiveBestFirstSearch(clients, driver):
             print('drop failed - no fuel')
             return False
         else:
-            actions += reconstructPath(final[0])
+            actions += actionsList
+            actionsList.clear()
             visited_states += final[1]
             visited.clear()
             actions.append(moves.DROPOFF)

@@ -138,23 +138,23 @@ def search(clients, driver, option):
 
 
 def main():
-    for i in range(1, 7):
-        test_no = i
-        (clients, driver_initial_state) = parse_input('test' + str(test_no) + '.in')
-        strategy = Strategies.RecursiveBestFirstSearch
-        start = time.time()
-        result = search(clients, driver_initial_state, strategy)
-        end = time.time()
-        #print(result)
+    #for i in range(1, 7):
+    test_no = 2
+    (clients, driver_initial_state) = parse_input('test' + str(test_no) + '.in')
+    strategy = Strategies.HillClimbing
+    start = time.time()
+    result = search(clients, driver_initial_state, strategy)
+    end = time.time()
+    #print(result)
 
-        measure_time = end - start
+    measure_time = end - start
 
-        output = open(strategy.name + '-test' + str(test_no) + '.out', 'w')
-        output.write(strategy.name + '\n')
-        output.write(str(measure_time) + '\n')
-        output.write(str(result[2]) + '\n')
-        output.write(str(result[4]) + '\n')
-        output.write(str(result[3]))
+    output = open(strategy.name + '-test' + str(test_no) + '.out', 'w')
+    output.write(strategy.name + '\n')
+    output.write(str(measure_time) + '\n')
+    output.write(str(result[2]) + '\n')
+    output.write(str(result[4]) + '\n')
+    output.write(str(result[3]))
 
 if __name__ == '__main__':
     main()

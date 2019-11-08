@@ -2,6 +2,7 @@ from Driver import Driver
 from algos.utils import h, g, areStatesEqual
 
 visited = []
+actionsList = []
 
 def RecursiveBestFirstSearch(state):
     state.parent = None
@@ -9,6 +10,9 @@ def RecursiveBestFirstSearch(state):
 
 def RecursiveBestFirstSearchHelper(state, k):
     visited.append((state.x, state.y))
+    if (state.lastMove != None):
+        actionsList.append(state.lastMove)
+
     if state.goal():
         visited_states = len(visited)
         visited.clear()
@@ -22,9 +26,9 @@ def RecursiveBestFirstSearchHelper(state, k):
 
     for i in range(len(succesors)):
         succesors[i].f = max(g(succesors[i]) + h(succesors[i]), state.f)
-        succesors[i].parent = state
 
     while True:
+        print((state.x, state.y))
         succesors = sorted(succesors, key=lambda succ: succ.f)
         best = succesors[0]
         if best.f > k:
