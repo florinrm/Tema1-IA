@@ -17,6 +17,10 @@ def RideIterativeDeepeningSearch(clients, driver):
         # pick-up client
         state.destinationX = client[0]  # startX client
         state.destinationY = client[1]  # startY client
+        '''
+        if (state.fuel <= 0):
+            return (state, g(state), total_money, actions, visited_states)
+        '''
 
         print(state)
 
@@ -25,7 +29,7 @@ def RideIterativeDeepeningSearch(clients, driver):
         result = IterativeDeepeningSearch(state)
         if result == False:
             print('pick-up failed - no fuel')
-            return False
+            return (state, g(state), total_money, actions, visited_states)
         else:
             print('pick-up succeded')
             actions += reconstructPath(result[0])
@@ -49,7 +53,7 @@ def RideIterativeDeepeningSearch(clients, driver):
 
         if final == False:
             print('drop failed - no fuel')
-            return False
+            return (result, g(result), total_money, actions, visited_states)
         else:
             actions += reconstructPath(final[0])
             visited_states += final[1]

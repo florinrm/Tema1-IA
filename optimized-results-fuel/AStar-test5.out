@@ -1,0 +1,5 @@
+AStar
+0.48856687545776367
+56
+12
+['right', 'up', 'pickup', 'down', 'left', 'left', 'down', 'left', 'left', 'down', 'dropoff', 'right', 'right', 'up', 'pickup', 'up', 'right', 'dropoff', 'down', 'left', 'left', 'left', 'left', 'left', 'up', 'pickup']

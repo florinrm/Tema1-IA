@@ -1,0 +1,5 @@
+BreadthFirstSearch
+1.8583269119262695
+117
+12
+['up', 'right', 'pickup', 'down', 'down', 'left', 'left', 'left', 'left', 'down', 'dropoff', 'right', 'right', 'up', 'pickup', 'up', 'right', 'dropoff']

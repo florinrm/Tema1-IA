@@ -26,7 +26,7 @@ def RideRecursiveBestFirstSearch(clients, driver):
         result = RecursiveBestFirstSearch(state)
         if result[0] == False:
             print('pick-up failed - no fuel')
-            return False
+            return (state, g(state), total_money, actions, visited_states)
         else:
             print('pick-up succeded')
             print(result)
@@ -52,7 +52,7 @@ def RideRecursiveBestFirstSearch(clients, driver):
 
         if final[0] == False:
             print('drop failed - no fuel')
-            return False
+            return (result, g(result), total_money, actions, visited_states)
         else:
             actions += actionsList
             actionsList.clear()

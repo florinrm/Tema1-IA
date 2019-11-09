@@ -28,7 +28,7 @@ def RecursiveBestFirstSearchHelper(state, k):
         succesors[i].f = max(g(succesors[i]) + h(succesors[i]), state.f)
 
     while True:
-        print((state.x, state.y))
+        #print((state.x, state.y))
         succesors = sorted(succesors, key=lambda succ: succ.f)
         best = succesors[0]
         if best.f > k:

@@ -1,0 +1,5 @@
+UniformCostSearch
+3.023491621017456
+256
+12
+['up', 'right', 'pickup', 'down', 'down', 'left', 'left', 'left', 'left', 'down', 'dropoff', 'right', 'right', 'up', 'pickup', 'up', 'right', 'dropoff', 'down', 'left', 'left', 'left', 'up', 'left', 'left', 'pickup']

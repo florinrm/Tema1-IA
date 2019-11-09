@@ -25,7 +25,7 @@ def RideAStarSearch(clients, driver):
         result = AStarSearch(state)
         if result == False:
             print('pick-up failed - no fuel')
-            return False
+            return (state, g(state), total_money, actions, visited_states)
         else:
             print('pick-up succeded')
             actions += reconstructPath(result[0])
@@ -49,7 +49,7 @@ def RideAStarSearch(clients, driver):
 
         if final == False:
             print('drop failed - no fuel')
-            return False
+            return (result, g(result), total_money, actions, visited_states)
         else:
             actions += reconstructPath(final[0])
             visited_states += final[1]

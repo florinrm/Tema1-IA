@@ -1,0 +1,5 @@
+DepthLimitedSearch
+0.15603876113891602
+28
+10
+['left', 'up', 'up', 'right', 'right', 'right', 'down', 'right', 'down', 'left', 'left', 'up', 'left', 'pickup', 'left', 'up', 'right', 'right', 'down', 'down', 'down', 'dropoff']
