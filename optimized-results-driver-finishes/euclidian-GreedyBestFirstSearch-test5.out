@@ -1,0 +1,5 @@
+GreedyBestFirstSearch
+0.7688181400299072
+117
+1088
+['up', 'right', 'pickup', 'down', 'left', 'left', 'down', 'left', 'left', 'down', 'dropoff', 'right', 'right', 'up', 'pickup', 'up', 'right', 'dropoff', 'left', 'down', 'left', 'left', 'left', 'up', 'left', 'pickup', 'down', 'right', 'right', 'right', 'down', 'right', 'right', 'down', 'right', 'dropoff', 'left', 'up', 'left', 'up', 'left', 'pickup', 'left', 'up', 'dropoff', 'pickup', 'down', 'down', 'down', 'right', 'dropoff', 'left', 'up', 'left', 'up', 'left', 'pickup', 'right', 'right', 'down', 'right', 'dropoff', 'up', 'up', 'right', 'right', 'pickup', 'down', 'down', 'left', 'dropoff', 'down', 'left', 'left', 'down', 'left', 'pickup', 'up', 'up', 'right', 'right', 'right', 'up', 'dropoff', 'left', 'left', 'up', 'pickup', 'right', 'right', 'down', 'down', 'right', 'right', 'dropoff', 'up', 'up', 'up', 'pickup', 'down', 'left', 'down', 'left', 'down', 'down', 'left', 'left', 'down', 'left', 'down', 'left', 'dropoff']

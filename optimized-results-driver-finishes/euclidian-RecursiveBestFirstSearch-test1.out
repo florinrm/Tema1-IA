@@ -1,0 +1,5 @@
+RecursiveBestFirstSearch
+0.06131577491760254
+0
+996
+['up', 'left', 'pickup', 'left', 'down', 'down', 'down', 'left', 'up', 'up', 'up', 'right', 'dropoff', 'right', 'down', 'left', 'up', 'up', 'up', 'up', 'right', 'down', 'down', 'pickup', 'down', 'down', 'down', 'dropoff', 'down', 'up', 'up', 'up', 'up', 'right', 'down', 'down', 'right', 'up', 'right', 'left', 'down', 'down', 'left', 'up', 'up', 'up', 'right', 'pickup', 'right', 'down', 'down', 'down', 'down', 'left', 'up', 'up', 'up', 'up', 'right', 'down', 'up', 'up', 'up', 'right', 'down', 'down', 'down', 'down', 'right', 'dropoff']

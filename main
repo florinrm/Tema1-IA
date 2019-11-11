@@ -149,7 +149,7 @@ def main():
 
         measure_time = end - start
 
-        output = open(strategy.name + '-test' + str(test_no) + '.out', 'w')
+        output = open('euclidian-' + strategy.name + '-test' + str(test_no) + '.out', 'w')
         output.write(strategy.name + '\n')
         output.write(str(measure_time) + '\n')
         output.write(str(result[4]) + '\n')

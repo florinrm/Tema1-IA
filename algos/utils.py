@@ -1,3 +1,5 @@
+from math import sqrt
+
 from Driver import Driver
 
 def g(state):
@@ -7,10 +9,16 @@ def g(state):
         state = state.parent
     return cost
 
-def h(state):
+def manhattan(state):
     if state.goal():
         return 0
     return abs(state.x - state.destinationX) + (state.y - state.destinationY)
+
+#euclidian
+def h(state):
+    if state.goal():
+        return 0
+    return sqrt((state.x - state.destinationX) ** 2 + (state.y - state.destinationY) ** 2)
 
 def areStatesEqual(state1, state2):
     return state1.x == state2.x and state2.y == state1.y \
