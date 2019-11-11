@@ -8,20 +8,20 @@ def plotTime():
 
     # DFS optimized
 
-    optimized = np.array([1016,
-                        1071,
-                            1071,
-                            1046,
-                            1088,
-                            1073])
+    optimized = np.array([0.06131577491760254,
+                            0.2790355682373047,
+                            0.27101755142211914,
+                            0.7714240550994873,
+                            1.0099232196807861,
+                            3.621021032333374])
 
 
-    unoptimized = np.array([1016,
-                            1071,
-                            1071,
-                            1046,
-                            1088,
-                            1073])
+    unoptimized = np.array([0.06203269958496094,
+                            0.25005030632019043,
+                            0.25218701362609863,
+                            0.7016632556915283,
+                            0.9390418529510498,
+                            3.5696239471435547])
 
     xnew = np.linspace(x.min(), x.max(), 4)
 
@@ -30,15 +30,12 @@ def plotTime():
     
 
     plt.plot(xnew, power_smooth_optimized, label="Manhattan")
-    #plt.legend(title='A Star - Manhattan')
-    # plt.show()
-
 
     spl_unoptimized = sc.make_interp_spline(x, unoptimized, k=3)  # BSpline object
     power_smooth_unoptimized = spl_unoptimized(xnew)
 
     plt.plot(xnew, power_smooth_unoptimized, label="Euclidian")
-    plt.legend(title='A Star Search - cost')
+    plt.legend(title='Recursive Best First Search - time')
     plt.show()
 # -no-fuel
 
